@@ -56,60 +56,117 @@
     <!-- Project Gallery -->
     <section class="py-5">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-6 mb-4" data-aos="zoom-in">
-                    <div class="service-card p-0 overflow-hidden">
-                        <img src="./assets/img/survey1 (3).jpg" class="img-fluid w-100" alt="Subdivision Project">
-                        <div class="p-4">
-                            <span class="badge bg-success mb-2">Cadastral</span>
-                            <h3>Estate Subdivision - Narok South</h3>
-                            <p>Survey and subdivision of a 500-acre agricultural block into commercial plots, including
-                                legal registration and title deed issuance support.</p>
+            <!-- Filter Buttons -->
+            <div class="text-center filter-container" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="cadastral">Cadastral</button>
+                <button class="filter-btn" data-filter="topo">Topographic</button>
+                <button class="filter-btn" data-filter="infra">Infrastructure</button>
+                <button class="filter-btn" data-filter="drone">UAV/Drone</button>
+            </div>
+
+            <div class="row g-4 project-grid">
+                <!-- Project 1 -->
+                <div class="col-lg-6 project-item" data-category="cadastral" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/project_narok_subdivision_1773083757948.png"
+                                alt="Estate Subdivision">
+                            <div class="project-overlay text-white">
+                                <p class="mb-0">A comprehensive 500-acre subdivision project including legal mapping and
+                                    beacon placement.</p>
+                            </div>
+                        </div>
+                        <div class="project-info-fixed">
+                            <span class="project-tag">Cadastral Survey</span>
+                            <h3>Narok Estate Subdivision</h3>
+                            <div class="project-location">
+                                <i class="fa-solid fa-location-dot"></i> Narok South, Kenya
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="service-card p-0 overflow-hidden">
-                        <img src="./assets/img/field-work.jpg" class="img-fluid w-100" alt="Urban Mapping Project">
-                        <div class="p-4">
-                            <span class="badge bg-primary mb-2">Topographic</span>
-                            <h3>Retail Mall Topographic Mapping - Nairobi</h3>
-                            <p>Detailed architectural survey for a new multi-use development, mapping elevation,
-                                drainage systems, and existing utility easements with cm-level precision.</p>
+
+                <!-- Project 2 -->
+                <div class="col-lg-6 project-item" data-category="topo" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/project_nairobi_mapping_1773083788520.png"
+                                alt="Retail Mall Mapping">
+                            <div class="project-overlay text-white">
+                                <p class="mb-0">Detailed elevation and drainage mapping for a high-traffic retail
+                                    development in the city.</p>
+                            </div>
+                        </div>
+                        <div class="project-info-fixed">
+                            <span class="project-tag">Topographic Mapping</span>
+                            <h3>Nairobi Retail Development</h3>
+                            <div class="project-location">
+                                <i class="fa-solid fa-location-dot"></i> Nairobi CBD
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Additional Portfolio Placeholders -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="service-card p-0 overflow-hidden">
-                        <img src="./assets/img/survey2.jpg" class="img-fluid w-100" alt="Road Corridor Survey">
-                        <div class="p-4">
-                            <span class="badge bg-info mb-2">Infrastructure</span>
+
+                <!-- Project 3 -->
+                <div class="col-md-4 project-item" data-category="infra" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/project_road_survey_1773083860118.png"
+                                alt="Road Corridor Survey">
+                            <div class="project-overlay text-white">
+                                <p class="mb-0">Route alignment mapping and infrastructure layout for county road
+                                    improvement.</p>
+                            </div>
+                        </div>
+                        <div class="project-info-fixed">
+                            <span class="project-tag">Infrastructure</span>
                             <h4>Road Corridor Survey</h4>
-                            <p class="text-muted small">Route alignment mapping and volume calculations for community road
-                                infrastructure improvement.</p>
+                            <div class="project-location">
+                                <i class="fa-solid fa-location-dot"></i> Nakuru County
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="service-card p-0 overflow-hidden">
-                        <img src="./assets/img/boundary-dispute.png" class="img-fluid w-100" alt="Property Re-Establishment">
-                        <div class="p-4">
-                            <span class="badge bg-secondary mb-2">Dispute Resolution</span>
-                            <h4>Property Re-Establishment</h4>
-                            <p class="text-muted small">Successful resolution of boundary disputes between neighboring
-                                estates using historical survey data.</p>
+
+                <!-- Project 4 -->
+                <div class="col-md-4 project-item" data-category="cadastral" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="C:/Users/HP/Downloads/Earthscope/assets/img/boundary-dispute.png"
+                                alt="Property Re-Establishment">
+                            <div class="project-overlay text-white">
+                                <p class="mb-0">Re-fixing boundaries and resolving long-standing land disputes with
+                                    legal precision.</p>
+                            </div>
+                        </div>
+                        <div class="project-info-fixed">
+                            <span class="project-tag">Dispute Resolution</span>
+                            <h4>Boundary Re-Establishment</h4>
+                            <div class="project-location">
+                                <i class="fa-solid fa-location-dot"></i> Kiambu, Kenya
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="service-card p-0 overflow-hidden">
-                        <img src="./assets/img/elizeu-dias-2EGNqazbAMk-unsplash.jpg" class="img-fluid w-100" alt="Mining Site Mapping">
-                        <div class="p-4">
-                            <span class="badge bg-dark mb-2">UAV/Drone</span>
-                            <h4>Mining Site Mapping</h4>
-                            <p class="text-muted small">Orthophoto generation and stockpile volume measurement for an active
-                                quarry site in Rift Valley.</p>
+
+                <!-- Project 5 -->
+                <div class="col-md-4 project-item" data-category="drone" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/survey_drone_mapping_1772874065860.png"
+                                alt="Drone Mapping">
+                            <div class="project-overlay text-white">
+                                <p class="mb-0">High-resolution orthophoto generation and volumetric analysis for mining
+                                    operations.</p>
+                            </div>
+                        </div>
+                        <div class="project-info-fixed">
+                            <span class="project-tag">UAV / Drone Survey</span>
+                            <h4>Mining Site Volumetrics</h4>
+                            <div class="project-location">
+                                <i class="fa-solid fa-location-dot"></i> Rift Valley
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -170,7 +227,7 @@
         </div>
     </footer>
 
-     <!-- Floating WhatsApp Button -->
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/254700000000" class="whatsapp-btn" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>

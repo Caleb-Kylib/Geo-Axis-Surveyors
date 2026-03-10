@@ -26,33 +26,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Navbar Scroll Effect
+    // 3. Navbar & Parallax & Counter Trigger
     const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+    const statsSection = document.querySelector('.bg-light'); // The section containing stats
+    let counterStarted = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const scrollY = window.scrollY;
+
+        // Navbar effect
+        if (scrollY > 50) {
             navbar.style.padding = '0.5rem 0';
             navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
         } else {
             navbar.style.padding = '1rem 0';
             navbar.style.backgroundColor = '#ffffff';
         }
+
+        // Hero Parallax
+        if (hero) {
+            hero.style.backgroundPositionY = `${scrollY * 0.5}px`;
+        }
+
+        // Stats Counter Trigger
+        if (statsSection && !counterStarted) {
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.2;
+            if (sectionPos < screenPos) {
+                startCounters();
+                counterStarted = true;
+            }
+        }
     });
+
+    // 4. Counter Animation Logic
+    function startCounters() {
+        const counters = document.querySelectorAll('.counter-value');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 16ms approx for 60fps
+
+            const updateCount = () => {
+                const count = +counter.innerText;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
 
     // 4. Contact Form Handling (Simulated Success for Formspree)
     const contactForm = document.getElementById('quoteForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
+        contactForm.addEventListener('submit', function (event) {
             // Since we use Formspree, we can't easily intercept the actual redirect
             // without using AJAX. To provide a "success" message as requested, 
             // we could use fetch if the user wanted, but standard Formspree action 
             // redirects to their thank you page.
-            
+
             // To fulfill the requirement "Show success message after submission":
             // We assume the user might want an AJAX submission or just a visual hint.
             // Let's implement a simple visual feedback.
-            
+
             console.log("Form submitted. Waiting for Formspree redirect.");
-            
+
             // Optional: If you want to handle it via AJAX to stay on page:
             /*
             event.preventDefault();
@@ -82,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextBtn = document.getElementById('nextBtn');
         const wrapper = document.querySelector('.testimonials-wrapper');
         const indicatorsContainer = document.getElementById('carouselIndicators');
-        
+
         if (!testimonialCards.length || !wrapper) return;
 
         let currentIndex = 0;
@@ -105,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function createIndicators() {
             indicatorsContainer.innerHTML = '';
             const maxIndex = getMaxIndex();
-            
+
             for (let i = 0; i <= maxIndex; i++) {
                 const dot = document.createElement('button');
                 dot.className = `indicator-dot ${i === 0 ? 'active' : ''}`;
@@ -123,11 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateCarousel() {
             const maxIndex = getMaxIndex();
             currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
-            
+
             const cardWidth = testimonialCards[0].offsetWidth;
             const gap = 24; // 1.5rem in pixels
             const translateValue = -currentIndex * (cardWidth + gap);
-            
+
             wrapper.style.transform = `translateX(${translateValue}px)`;
 
             // Update button states
@@ -196,6 +239,41 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
         startAutoPlay();
     };
+
+    // 6. Project Filtering Logic
+    const initProjectFilters = () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        if (!filterBtns.length || !projectItems.length) return;
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hide');
+                        // Re-trigger AOS
+                        item.setAttribute('data-aos', 'fade-up');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+
+                // Refresh AOS for visible elements
+                AOS.refresh();
+            });
+        });
+    };
+
+    // Initialize Project Filters
+    initProjectFilters();
 
     // Initialize carousel when DOM is ready
     setTimeout(initTestimonialCarousel, 100);
