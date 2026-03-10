@@ -234,6 +234,7 @@ a {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     transition: var(--transition-smooth);
+    flex-shrink: 0;
 }
 
 .service-card:hover .service-icon {
@@ -527,9 +528,10 @@ a {
 
 /* --- Page Banners --- */
 .about-banner {
-    background: linear-gradient(rgba(10, 34, 64, 0.8), rgba(10, 34, 64, 0.8)), url('../assets/img/prince-akachi-4Yv84VgQkRM-unsplash.jpg');
+    background: linear-gradient(rgba(10, 34, 64, 0.7), rgba(10, 34, 64, 0.4)), url('C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/project_narok_subdivision_1773083757948.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .services-banner {
@@ -556,7 +558,45 @@ a {
     background-position: center;
 }
 
-/* --- About Page: Values --- */
+/* --- About Page: Values & Cards --- */
+.mv-card {
+    background: var(--white);
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--accent-color);
+}
+
+.mv-icon-bg {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 10rem;
+    color: var(--accent-color);
+    opacity: 0.05;
+    transition: var(--transition-smooth);
+}
+
+.mv-card:hover .mv-icon-bg {
+    transform: rotate(-10deg) scale(1.1);
+    opacity: 0.1;
+}
+
+.mv-content {
+    position: relative;
+    z-index: 1;
+}
+
 .value-card {
     padding: 2.5rem;
     background: var(--white);
@@ -566,7 +606,6 @@ a {
     height: 100%;
     transition: var(--transition-smooth);
     border: 1px solid rgba(0, 0, 0, 0.03);
-    perspective: 1000px;
 }
 
 .value-card:hover {
@@ -1059,4 +1098,22 @@ a {
 /* Hide projects that don't match filter */
 .project-item.hide {
     display: none;
+}
+
+/* --- Clean up Internal Styles --- */
+.hero {
+    background: linear-gradient(rgba(10, 34, 64, 0.6), rgba(10, 34, 64, 0.4)), url('C:/Users/HP/.gemini/antigravity/brain/c4b9e7c9-52dc-4760-9f56-4a339fdc6d0a/hero_surveyor_kenya_1772487081890.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.team-image-custom {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.rounded-top-right-custom {
+    border-radius: 0 20px 0 0;
 }
