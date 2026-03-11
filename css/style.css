@@ -1201,11 +1201,49 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-smooth);
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #555;
+    font-size: 1.1rem;
 }
 
 .share-icons .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+}
+
+.share-btn-twitter:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.share-btn-facebook:hover {
+    background-color: #3b5998 !important;
+    color: #fff !important;
+}
+
+.share-btn-whatsapp:hover {
+    background-color: #25d366 !important;
+    color: #fff !important;
+}
+
+.share-btn-linkedin:hover {
+    background-color: #0077b5 !important;
+    color: #fff !important;
+}
+
+#copyLinkBtn {
+    transition: all 0.3s ease;
+    background-color: var(--accent-color);
+    border: none;
+}
+
+#copyLinkBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+    opacity: 0.9;
 }
 
 @media (max-width: 991px) {
@@ -1278,4 +1316,80 @@ a {
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+/* --- Premium CTA Section --- */
+.premium-cta-section {
+    background: var(--primary-color);
+    padding: 8rem 0;
+    position: relative;
+    color: var(--white);
+}
+
+.cta-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 34, 64, 0.92) 0%, rgba(39, 174, 96, 0.4) 100%),
+        url('../assets/img/survey1 (4).jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+.tracking-widest {
+    letter-spacing: 0.2rem;
+}
+
+.cta-feature {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.cta-feature i {
+    font-size: 1.3rem;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--accent-color);
+}
+
+.opacity-90 {
+    opacity: 0.9;
+}
+
+@media (max-width: 991px) {
+    .premium-cta-section {
+        padding: 6rem 0;
+        text-align: center;
+    }
+
+    .cta-feature {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .premium-cta-section .d-flex.flex-wrap.gap-4 {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
 }
