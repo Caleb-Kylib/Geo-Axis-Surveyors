@@ -1117,3 +1117,29 @@ a {
 .rounded-top-right-custom {
     border-radius: 0 20px 0 0;
 }
+
+/* --- Blog Section Styles --- */
+.blog-card {
+    transition: var(--transition-smooth);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium) !important;
+}
+
+.blog-img {
+    height: 220px;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.blog-card:hover .blog-img {
+    transform: scale(1.05);
+}
+
+.blog-card .badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
