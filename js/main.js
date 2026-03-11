@@ -275,6 +275,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Project Filters
     initProjectFilters();
 
+    // 7. Copy Link Functionality for Blog
+    const copyLinkBtn = document.getElementById('copyLinkBtn');
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', () => {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const successMsg = document.getElementById('copySuccessMsg');
+                if (successMsg) {
+                    successMsg.classList.remove('d-none');
+                    copyLinkBtn.innerHTML = '<i class="fa-solid fa-check me-1"></i> Copied!';
+                    setTimeout(() => {
+                        successMsg.classList.add('d-none');
+                        copyLinkBtn.innerHTML = '<i class="fa-solid fa-link me-1"></i> Copy Link';
+                    }, 3000);
+                }
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    }
+
     // Initialize carousel when DOM is ready
     setTimeout(initTestimonialCarousel, 100);
 });
+
