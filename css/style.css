@@ -1144,6 +1144,27 @@ a {
     letter-spacing: 1px;
 }
 
+.badge-ownership {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.badge-guides {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+.badge-development {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.badge-tech {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+
 /* --- Blog Single Article Styles --- */
 .article-hero {
     padding: 120px 0 80px;
@@ -1195,4 +1216,66 @@ a {
     .sidebar {
         margin-top: 3rem;
     }
+}
+
+/* --- SEO Blog Layout Enhancements --- */
+.breadcrumb-container {
+    padding: 1rem 0;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb-item a {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.breadcrumb-item.active {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.article-tldr {
+    background: #e8f5e9;
+    border-left: 5px solid var(--accent-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.article-toc {
+    background: var(--white);
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.article-toc h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toc-list {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.toc-list a {
+    color: var(--text-dark);
+}
+
+.in-article-cta {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
