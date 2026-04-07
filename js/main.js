@@ -3,7 +3,19 @@
  * Handles animations, smooth scroll, and form feedback
  */
 
+// EmailJS Configuration - Centralized for easier management
+const EMAILJS_CONFIG = {
+    PUBLIC_KEY: 'hp0bLAoKz-yXUGZFa',
+    SERVICE_ID: 'service_106r1qm',
+    TEMPLATE_ID: 'template_ujq9eskUR'
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+    }
+
     // 1. Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 800,
@@ -81,42 +93,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Contact Form Handling (Simulated Success for Formspree)
-    const contactForm = document.getElementById('quoteForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-            // Since we use Formspree, we can't easily intercept the actual redirect
-            // without using AJAX. To provide a "success" message as requested, 
-            // we could use fetch if the user wanted, but standard Formspree action 
-            // redirects to their thank you page.
+    // 4. Contact Form Handling (EmailJS Integration)
+    const handleEmailJSForm = (formId, statusContainerId, statusBadgeId, submitBtnId) => {
+        const formElement = document.getElementById(formId);
+        const statusContainer = document.getElementById(statusContainerId);
+        const statusBadge = document.getElementById(statusBadgeId);
+        const submitBtn = document.getElementById(submitBtnId);
 
-            // To fulfill the requirement "Show success message after submission":
-            // We assume the user might want an AJAX submission or just a visual hint.
-            // Let's implement a simple visual feedback.
+        if (formElement) {
+            formElement.addEventListener('submit', function (event) {
+                event.preventDefault();
 
-            console.log("Form submitted. Waiting for Formspree redirect.");
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
+                statusContainer.classList.add('d-none');
 
-            // Optional: If you want to handle it via AJAX to stay on page:
-            /*
-            event.preventDefault();
-            const formData = new FormData(this);
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    alert('Thank you! Your message has been sent successfully.');
-                    contactForm.reset();
-                } else {
-                    alert('Oops! There was a problem submitting your form');
-                }
+                // Generate a random contact number (optional, for tracking)
+                this.contact_number = Math.random() * 100000 | 0;
+
+                // Use centralized IDs from configuration
+                emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, this)
+                    .then(function () {
+                        // Success handling
+                        statusBadge.className = 'badge rounded-pill bg-success px-3 py-2';
+                        statusBadge.innerHTML = '<i class="fa-solid fa-check-circle me-1"></i> Message sent successfully!';
+                        statusContainer.classList.remove('d-none');
+                        formElement.reset();
+                    }, function (error) {
+                        // Error handling
+                        console.error('EmailJS Error:', error);
+                        statusBadge.className = 'badge rounded-pill bg-danger px-3 py-2';
+                        statusBadge.innerHTML = '<i class="fa-solid fa-circle-exclamation me-1"></i> Failed to send message. Please try again.';
+                        statusContainer.classList.remove('d-none');
+                    })
+                    .finally(function () {
+                        // Restore button state
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = 'Send Message';
+                    });
             });
-            */
-        });
-    }
+        }
+    };
+
+    // Initialize both forms
+    handleEmailJSForm('contact-form-emailjs', 'form-status', 'status-badge', 'submit-btn');
+    handleEmailJSForm('quote-form-emailjs', 'quote-form-status', 'quote-status-badge', 'quote-submit-btn');
 
     // 5. Testimonial Carousel
     const initTestimonialCarousel = () => {

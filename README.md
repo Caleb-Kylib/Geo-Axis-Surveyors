@@ -1,8 +1,8 @@
-# Earthscope Surveyors - Professional Land Surveying Services
+# GeoAxis Surveyors - Professional Land Surveying Services
 
 ## Overview
 
-**Earthscope Surveyors** is a professional land surveying website for a licensed surveying firm based in Nairobi, Kenya. The company provides high-quality mapping, boundary determination, and cadastral services across Kenya for residential, commercial, and agricultural properties.
+**GeoAxis Surveyors** is a professional land surveying website for a licensed surveying firm based in Nairobi, Kenya. The company provides high-quality mapping, boundary determination, and cadastral services across Kenya for residential, commercial, and agricultural properties.
 
 This is a modern, responsive website built with HTML5, Bootstrap 5, and custom CSS to showcase the firm's expertise and services to potential clients.
 
@@ -60,7 +60,7 @@ The website highlights the following professional surveying services:
 ## Website Structure
 
 ```
-Earthscope/
+GeoAxis/
 ├── index.html          # Home page - main landing page
 ├── about.html          # Company mission, vision, and values
 ├── services.html       # Detailed service offerings
@@ -123,7 +123,7 @@ Earthscope/
 1. **Clone or download the repository**
    ```bash
    git clone <repository-url>
-   cd Earthscope
+   cd GeoAxis
    ```
 
 2. **Open in a web server**
@@ -259,18 +259,18 @@ JavaScript functionality for:
 
 ## License
 
-This website design and content are proprietary to Earthscope Surveyors.
+This website design and content are proprietary to GeoAxis Surveyors.
 
 ---
 
 ## Contact Information
 
-**Earthscope Surveyors**  
+**GeoAxis Surveyors**  
 📱 Phone: +254 700 000 000  
-📧 Email: info@earthscope.co.ke  
+📧 Email: info@geoaxis.co.ke  
 📍 Location: Nairobi, Kenya  
 
-Visit the website: [www.earthscope.co.ke](https://www.earthscope.co.ke)
+Visit the website: [www.geoaxis.co.ke](https://www.geoaxis.co.ke)
 
 ---
 
@@ -291,4 +291,4 @@ For website updates, maintenance, or technical support:
 
 ---
 
-**Built with ❤️ by Earthscope Surveyors**
+**Built with ❤️ by GeoAxis Surveyors**

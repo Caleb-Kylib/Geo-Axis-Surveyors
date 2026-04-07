@@ -9,7 +9,7 @@
 
 :root {
     --primary-color: #0A2240;
-    /* Deep Blue */
+    /* Deep Blue - GeoAxis Brand */
     --secondary-color: #1a3c6d;
     --accent-color: #27ae60;
     /* Emerald Green */
@@ -65,8 +65,13 @@ a {
     margin: 0 0.5rem;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: var(--accent-color) !important;
+}
+
+.nav-link.active {
+    font-weight: 700;
 }
 
 .btn-cta {
@@ -1388,8 +1393,10 @@ a {
         margin-bottom: 0.5rem;
     }
 
-    .premium-cta-section .d-flex.flex-wrap.gap-4 {
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
+}
+
+.premium-cta-section .d-flex.flex-wrap.gap-4 {
+    justify-content: center;
+    margin-bottom: 2rem;
+}
 }
