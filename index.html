@@ -18,7 +18,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.yourdomain.co.ke">
     <!-- Meta image placeholder -->
-    <meta property="og:image" content="images/hero.png">
+    <meta property="og:image" content="assets/img/field-work.jpg">
 
     <!-- Favicon Placeholder -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -63,26 +63,98 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1 data-aos="fade-up">Licensed Land Surveyor in Nairobi, Kenya</h1>
-                    <p data-aos="fade-up" data-aos-delay="200">
-                        Boundary, Topographic & Cadastral Survey Services Across Kenya. We provide precision mapping and
-                        legal documentation for residential, commercial, and agricultural properties.
-                    </p>
-                    <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
-                        <a href="tel:+254700000000" class="btn btn-cta btn-lg me-3">
-                            <i class="fa-solid fa-phone me-2"></i> Call Now
-                        </a>
-                        <a href="#contact-form" class="btn btn-outline-light btn-lg rounded-pill px-4">
-                            Request a Quote
-                        </a>
+    <header class="hero-carousel-wrapper">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="hero-slide" style="background-image: linear-gradient(rgba(10, 34, 64, 0.65), rgba(10, 34, 64, 0.45)), url('assets/img/field-work.jpg');">
+                        <div class="container hero-content text-center text-lg-start">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="col-lg-8">
+                                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInUp">Licensed Land Surveyor in Nairobi, Kenya</h1>
+                                    <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+                                        Precision mapping and legal documentation for residential, commercial, and agricultural properties across Kenya. 
+                                    </p>
+                                    <div class="hero-btns animate__animated animate__fadeInUp animate__delay-2s">
+                                        <a href="tel:+254700000000" class="btn btn-cta btn-lg me-lg-3 mb-3 mb-lg-0">
+                                            <i class="fa-solid fa-phone me-2"></i> Call Now
+                                        </a>
+                                        <a href="#contact-form" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                                            Request a Quote
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: linear-gradient(rgba(10, 34, 64, 0.65), rgba(10, 34, 64, 0.45)), url('assets/img/survey1 (1).jpg');">
+                        <div class="container hero-content text-center text-lg-start">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="col-lg-8">
+                                    <h1 class="display-3 fw-bold mb-4">Accurate Boundary & Cadastral Surveys</h1>
+                                    <p class="lead mb-5">
+                                        We determine exact property lines to resolve disputes and secure your land investment with legal certification.
+                                    </p>
+                                    <div class="hero-btns">
+                                        <a href="services.html" class="btn btn-cta btn-lg me-lg-3 mb-3 mb-lg-0">
+                                            Explore Services
+                                        </a>
+                                        <a href="contact.html" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                                            Book a Survey
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: linear-gradient(rgba(10, 34, 64, 0.65), rgba(10, 34, 64, 0.45)), url('assets/img/survey2.jpg');">
+                        <div class="container hero-content text-center text-lg-start">
+                            <div class="row align-items-center min-vh-100">
+                                <div class="col-lg-8">
+                                    <h1 class="display-3 fw-bold mb-4">Modern Technology for Precise Mapping</h1>
+                                    <p class="lead mb-5">
+                                        Utilizing high-precision GNSS/GPS and Robotic Total Stations for centimeter-level accuracy in every project.
+                                    </p>
+                                    <div class="hero-btns">
+                                        <a href="projects.html" class="btn btn-cta btn-lg me-lg-3 mb-3 mb-lg-0">
+                                            View Our Projects
+                                        </a>
+                                        <a href="#contact-form" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                                            Get a Quote
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </header>
 
@@ -211,7 +283,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="slide-right">
-                    <img src="C:/Users/HP/.gemini/antigravity/brain/c4b9e7c9-52dc-4760-9f56-4a339fdc6d0a/surveyor_team_kenya_1772487414523.png"
+                    <img src="assets/img/survey1 (1).jpg"
                         alt="Land Surveying Team in Kenya" class="img-fluid rounded-4 shadow-lg">
                 </div>
                 <div class="col-lg-6 mt-4 mt-lg-0 ps-lg-5" data-aos="slide-left">
@@ -255,7 +327,7 @@
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="equipment-card">
                         <div class="equipment-img-wrapper">
-                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/gnss_survey_equipment_1772874007408.png"
+                            <img src="assets/img/land-survey-instrument-level-geomatics.jpg"
                                 alt="GNSS Surveying">
                         </div>
                         <div class="p-4">
@@ -268,7 +340,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="equipment-card">
                         <div class="equipment-img-wrapper">
-                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/total_station_surveying_1772874048251.png"
+                            <img src="assets/img/survey_equpment.jpg"
                                 alt="Total Station">
                         </div>
                         <div class="p-4">
@@ -281,7 +353,7 @@
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="equipment-card">
                         <div class="equipment-img-wrapper">
-                            <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/survey_drone_mapping_1772874065860.png"
+                            <img src="assets/img/field-work.jpg"
                                 alt="Survey Drone">
                         </div>
                         <div class="p-4">
@@ -312,7 +384,7 @@
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="reviewer-info">
-                                    <img src="./assets/img/junior-reis-sx1x4lXBrqc-unsplash.jpg" alt="John Daniels"
+                                    <img src="assets/img/reviews.jpg" alt="John Daniels"
                                         class="reviewer-avatar">
                                     <div>
                                         <h5 class="mb-0">John Daniels</h5>
@@ -342,7 +414,7 @@
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="reviewer-info">
-                                    <img src="./assets/img/alex-starnes-PK_t0Lrh7MM-unsplash.jpg" alt="Sarah Mwangi"
+                                    <img src="assets/img/reviews1.jpg" alt="Sarah Mwangi"
                                         class="reviewer-avatar">
                                     <div>
                                         <h5 class="mb-0">Sarah Mwangi</h5>
@@ -400,7 +472,7 @@
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="reviewer-info">
-                                    <img src="./assets/img/prince-akachi-4Yv84VgQkRM-unsplash.jpg" alt="Alice Kariuki"
+                                    <img src="assets/img/review3.jpg" alt="Alice Kariuki"
                                         class="reviewer-avatar">
                                     <div>
                                         <h5 class="mb-0">Alice Kariuki</h5>
@@ -429,7 +501,7 @@
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <div class="reviewer-info">
-                                    <img src="./assets/img/fortune-vieyra-qC7jvmbEmRQ-unsplash.jpg"
+                                    <img src="assets/img/review4.jpg"
                                         alt="Michael Ochieng" class="reviewer-avatar">
                                     <div>
                                         <h5 class="mb-0">Michael Ochieng</h5>
@@ -559,7 +631,7 @@
                 <!-- Blog Card 1: Costs -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="blog-card h-100 shadow-sm border-0 rounded-4 overflow-hidden bg-white">
-                        <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/total_station_surveying_1772874048251.png"
+                        <img src="assets/img/survey_equpment.jpg"
                             class="card-img-top blog-img" alt="Survey Costs">
                         <div class="card-body p-4">
                             <span class="badge badge-guides mb-2">Pricing</span>
@@ -574,7 +646,7 @@
                 <!-- Blog Card 2: Verification -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card h-100 shadow-sm border-0 rounded-4 overflow-hidden bg-white">
-                        <img src="C:/Users/HP/.gemini/antigravity/brain/abb0a1f5-73ff-4a4f-be53-3aa8f25fd5f1/survey_drone_mapping_1772874065860.png"
+                        <img src="assets/img/field-work.jpg"
                             class="card-img-top blog-img" alt="Beacon Verification">
                         <div class="card-body p-4">
                             <span class="badge badge-ownership mb-2">Due Diligence</span>
