@@ -1424,9 +1424,8 @@ a {
         margin-bottom: 0.5rem;
     }
 
-}
-
-.premium-cta-section .d-flex.flex-wrap.gap-4 {
-    justify-content: center;
-    margin-bottom: 2rem;
+    .premium-cta-section .d-flex.flex-wrap.gap-4 {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
 }
