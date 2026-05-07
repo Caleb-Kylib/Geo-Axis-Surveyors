@@ -976,35 +976,187 @@ a {
 }
 
 /* --- About Page Additional Styles --- */
-.timeline {
+/* --- Journey Section (Premium Upgrade) --- */
+.journey-section {
+    background-color: #fff9f5; /* Very soft peach/cream */
     position: relative;
-    margin: 2rem 0;
-    padding-left: 2rem;
+    z-index: 1;
 }
 
-.timeline::before {
-    content: '';
+.dots-pattern {
     position: absolute;
-    left: 30px;
+    width: 200px;
+    height: 400px;
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.dots-left {
+    top: 50px;
+    left: -50px;
+    background-image: radial-gradient(var(--accent-color) 2px, transparent 2px);
+    background-size: 25px 25px;
+}
+
+.dots-right {
+    bottom: 50px;
+    right: -50px;
+    background-image: radial-gradient(var(--accent-color) 2px, transparent 2px);
+    background-size: 25px 25px;
+}
+
+.interactive-timeline-container {
+    position: relative;
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.timeline-line {
+    position: absolute;
     top: 0;
     bottom: 0;
+    left: 50%;
     width: 4px;
-    background: var(--accent-color);
+    background: rgba(39, 174, 96, 0.1);
+    transform: translateX(-50%);
+    border-radius: 10px;
 }
 
-.timeline-item {
+.timeline-milestone {
     position: relative;
-    margin-bottom: 2rem;
-    padding-left: 2rem;
+    width: 50%;
+    padding-right: 50px;
+    margin-bottom: 60px;
+    text-align: right;
 }
 
-.timeline-item h5 {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+.timeline-milestone.milestone-inverted {
+    margin-left: 50%;
+    padding-right: 0;
+    padding-left: 50px;
+    text-align: left;
 }
 
-.timeline-item p {
+.milestone-year {
+    font-family: 'Outfit', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    opacity: 0.1;
+    position: absolute;
+    top: -20px;
+    right: 50px;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.milestone-inverted .milestone-year {
+    right: auto;
+    left: 50px;
+}
+
+.milestone-content {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: var(--transition-smooth);
+    z-index: 2;
+}
+
+.milestone-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.milestone-content p {
     color: var(--text-dark);
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.milestone-content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(39, 174, 96, 0.1);
+    border-color: var(--accent-color);
+}
+
+.timeline-milestone:hover .milestone-year {
+    opacity: 0.3;
+    transform: scale(1.1);
+}
+
+.timeline-milestone::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-color);
+    border: 5px solid white;
+    border-radius: 50%;
+    top: 40px;
+    right: -14px;
+    z-index: 10;
+    box-shadow: 0 0 0 5px rgba(39, 174, 96, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.timeline-milestone:hover::after {
+    transform: scale(1.5);
+    background: var(--primary-color);
+}
+
+.milestone-inverted::after {
+    right: auto;
+    left: -14px;
+}
+
+.milestone-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    opacity: 0.05;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    transition: var(--transition-smooth);
+}
+
+.milestone-inverted .milestone-icon {
+    right: auto;
+    left: 30px;
+}
+
+.milestone-content:hover .milestone-icon {
+    opacity: 0.15;
+    transform: rotate(-10deg) scale(1.1);
+}
+
+@media (max-width: 991px) {
+    .timeline-line {
+        left: 30px;
+    }
+    .timeline-milestone {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 0;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+    .timeline-milestone.milestone-inverted {
+        margin-left: 0;
+    }
+    .timeline-milestone::after, .milestone-inverted::after {
+        left: 18px;
+    }
+    .milestone-year {
+        right: auto;
+        left: 70px;
+        font-size: 3.5rem;
+    }
 }
 
 .team-card img {
