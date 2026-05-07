@@ -304,35 +304,97 @@ a {
     border-left: 4px solid #2ecc71;
 }
 
-/* Icon background variations (optional override) */
-.boundary-icon {
-    background: rgba(39, 174, 96, 0.1);
-    color: #27ae60;
+/* --- Horizontal Service Cards (Screenshot Style) --- */
+.services-screenshot-section {
+    background-color: #fcf8f1; /* Warm off-white/beige */
+    padding: 6rem 0;
 }
 
-.topo-icon {
-    background: rgba(255, 107, 107, 0.1);
-    color: #ff6b6b;
+.horizontal-service-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    height: 100%;
+    display: flex;
+    gap: 1.5rem;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-.cadastral-icon {
-    background: rgba(52, 152, 219, 0.1);
-    color: #3498db;
+.horizontal-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(39, 174, 96, 0.2);
 }
 
-.gnss-icon {
-    background: rgba(243, 156, 18, 0.1);
-    color: #f39c12;
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #f0f4f1; /* Very light green/gray */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: #2d4a3e; /* Dark forest green icon */
+    transition: var(--transition-smooth);
 }
 
-.engineering-icon {
-    background: rgba(155, 89, 182, 0.1);
-    color: #9b59b6;
+.horizontal-service-card:hover .icon-box {
+    background: var(--accent-color);
+    color: var(--white);
 }
 
-.dispute-icon {
-    background: rgba(46, 204, 113, 0.1);
-    color: #2ecc71;
+.service-info h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+}
+
+.service-info p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.learn-more-link {
+    color: #2d4a3e;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.learn-more-link:hover {
+    color: var(--accent-color);
+    gap: 0.75rem;
+}
+
+.btn-view-all {
+    background-color: #2d4a3e;
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-view-all:hover {
+    background-color: #1e332a;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Hover effect reveals a snippet */
@@ -977,7 +1039,7 @@ a {
 
 /* --- About Page Additional Styles --- */
 /* --- Journey Section (Premium Upgrade) --- */
-.journey-section {
+.journey-section, .services-preview-section {
     background-color: #fff9f5; /* Very soft peach/cream */
     position: relative;
     z-index: 1;
