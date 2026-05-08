@@ -3,19 +3,7 @@
  * Handles animations, smooth scroll, and form feedback
  */
 
-// EmailJS Configuration - Centralized for easier management
-const EMAILJS_CONFIG = {
-    PUBLIC_KEY: 'hp0bLAoKz-yXUGZFa',
-    SERVICE_ID: 'service_106r1qm',
-    TEMPLATE_ID: 'template_ujq9eskUR'
-};
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize EmailJS
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-    }
-
     // 1. Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 800,
@@ -93,52 +81,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Contact Form Handling (EmailJS Integration)
-    const handleEmailJSForm = (formId, statusContainerId, statusBadgeId, submitBtnId) => {
+    // 4. Contact Form Handling (Formspree Integration via Fetch)
+    const handleFormSubmission = (formId, statusContainerId, statusBadgeId, submitBtnId) => {
         const formElement = document.getElementById(formId);
         const statusContainer = document.getElementById(statusContainerId);
         const statusBadge = document.getElementById(statusBadgeId);
         const submitBtn = document.getElementById(submitBtnId);
 
         if (formElement) {
-            formElement.addEventListener('submit', function (event) {
+            formElement.addEventListener('submit', async function (event) {
                 event.preventDefault();
 
                 // Show loading state
                 submitBtn.disabled = true;
+                const originalBtnText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
                 statusContainer.classList.add('d-none');
 
-                // Generate a random contact number (optional, for tracking)
-                this.contact_number = Math.random() * 100000 | 0;
+                const formData = new FormData(formElement);
 
-                // Use centralized IDs from configuration
-                emailjs.sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, this)
-                    .then(function () {
+                try {
+                    const response = await fetch(formElement.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
                         // Success handling
                         statusBadge.className = 'badge rounded-pill bg-success px-3 py-2';
-                        statusBadge.innerHTML = '<i class="fa-solid fa-check-circle me-1"></i> Message sent successfully!';
+                        statusBadge.innerHTML = '<i class="fa-solid fa-check-circle me-1"></i> Message sent successfully! We\'ll get back to you soon.';
                         statusContainer.classList.remove('d-none');
                         formElement.reset();
-                    }, function (error) {
-                        // Error handling
-                        console.error('EmailJS Error:', error);
-                        statusBadge.className = 'badge rounded-pill bg-danger px-3 py-2';
-                        statusBadge.innerHTML = '<i class="fa-solid fa-circle-exclamation me-1"></i> Failed to send message. Please try again.';
-                        statusContainer.classList.remove('d-none');
-                    })
-                    .finally(function () {
-                        // Restore button state
-                        submitBtn.disabled = false;
-                        submitBtn.innerText = 'Send Message';
-                    });
+                    } else {
+                        // Error handling from Formspree
+                        const data = await response.json();
+                        throw new Error(data.error || 'Failed to send message');
+                    }
+                } catch (error) {
+                    console.error('Submission Error:', error);
+                    statusBadge.className = 'badge rounded-pill bg-danger px-3 py-2';
+                    statusBadge.innerHTML = '<i class="fa-solid fa-circle-exclamation me-1"></i> Oops! There was a problem. Please try again.';
+                    statusContainer.classList.remove('d-none');
+                } finally {
+                    // Restore button state
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
             });
         }
     };
 
-    // Initialize both forms
-    handleEmailJSForm('contact-form-emailjs', 'form-status', 'status-badge', 'submit-btn');
-    handleEmailJSForm('quote-form-emailjs', 'quote-form-status', 'quote-status-badge', 'quote-submit-btn');
+    // Initialize the contact form
+    handleFormSubmission('contact-form', 'form-status', 'status-badge', 'submit-btn');
 
     // 5. Testimonial Carousel
     const initTestimonialCarousel = () => {
@@ -321,4 +318,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize carousel when DOM is ready
     setTimeout(initTestimonialCarousel, 100);
 });
-
