@@ -26,23 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Navbar & Parallax & Counter Trigger
-    const navbar = document.querySelector('.navbar');
+    // 3. Parallax Effect
     const hero = document.querySelector('.hero');
-    const statsSection = document.querySelector('.bg-light'); // The section containing stats
-    let counterStarted = false;
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-
-        // Navbar effect
-        if (scrollY > 50) {
-            navbar.style.padding = '0.5rem 0';
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        } else {
-            navbar.style.padding = '1rem 0';
-            navbar.style.backgroundColor = '#ffffff';
-        }
 
         // Hero Parallax
         if (hero) {
