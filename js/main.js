@@ -48,38 +48,58 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hero) {
             hero.style.backgroundPositionY = `${scrollY * 0.5}px`;
         }
-
-        // Stats Counter Trigger
-        if (statsSection && !counterStarted) {
-            const sectionPos = statsSection.getBoundingClientRect().top;
-            const screenPos = window.innerHeight / 1.2;
-            if (sectionPos < screenPos) {
-                startCounters();
-                counterStarted = true;
-            }
-        }
     });
 
-    // 4. Counter Animation Logic
-    function startCounters() {
+    // 4. Counter Animation Logic (Modern IntersectionObserver + requestAnimationFrame)
+    const initCounters = () => {
+        const statsSection = document.getElementById('stats-section');
         const counters = document.querySelectorAll('.counter-value');
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // 16ms approx for 60fps
 
-            const updateCount = () => {
-                const count = +counter.innerText;
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 1);
+        if (!statsSection || !counters.length) return;
+
+        const animateCounter = (el) => {
+            const target = +el.getAttribute('data-target');
+            const duration = 2500; // Duration in ms
+            let startTime = null;
+
+            const step = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+
+                // Ease out cubic function for smooth ending
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                const currentCount = Math.floor(easeOutCubic * target);
+
+                el.innerText = currentCount;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
                 } else {
-                    counter.innerText = target;
+                    el.innerText = target;
                 }
             };
-            updateCount();
-        });
-    }
+
+            requestAnimationFrame(step);
+        };
+
+        const observerOptions = {
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(counter => animateCounter(counter));
+                    observer.unobserve(entry.target); // Run only once
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(statsSection);
+    };
+
+    // Initialize counters
+    initCounters();
 
     // 4. Contact Form Handling (Formspree Integration via Fetch)
     const handleFormSubmission = (formId, statusContainerId, statusBadgeId, submitBtnId) => {
