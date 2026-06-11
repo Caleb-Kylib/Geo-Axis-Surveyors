@@ -80,7 +80,7 @@ const navbarHTML = `
                 </li>
                 <li class="nav-item ms-lg-3">
                     <a href="contact.html" class="btn btn-nav-cta">
-                        <i class="fa-solid fa-paper-plane"></i> Request Survey Quote
+                        <i class="fa-solid fa-paper-plane"></i> Contact Us
                     </a>
                 </li>
             </ul>

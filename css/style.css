@@ -260,9 +260,8 @@ a {
 }
 
 .btn-nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
-    color: var(--white);
+    background: var(--forest-green);
+    color: var(--white) !important;
 }
 
 .btn-nav-cta i {
@@ -681,13 +680,40 @@ a {
 
 /* --- CTA Strip --- */
 .cta-strip {
-    background: linear-gradient(rgba(10, 34, 64, 0.9), rgba(10, 34, 64, 0.9)), url('../assets/img/survey1 (1).jpg');
+    background: linear-gradient(135deg, rgba(20, 83, 45, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%),
+        url('../assets/img/survey1 (1).jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: var(--white);
-    padding: 6rem 0;
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
 }
+
+.btn-cta {
+    background: var(--primary-gradient);
+    color: var(--white) !important;
+    border-radius: 50px;
+    padding: 1.2rem 3rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(22, 197, 94, 0.3);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-cta:hover {
+    background: var(--forest-green);
+    color: var(--white) !important;
+}
+
+
 
 /* --- Workflow Section --- */
 .workflow-item {
