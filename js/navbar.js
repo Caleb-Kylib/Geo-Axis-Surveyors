@@ -4,20 +4,11 @@
  */
 
 const navbarHTML = `
-<!-- Trust indicators strip (Optional/Premium touch) -->
-<div class="trust-indicators-bar d-none d-lg-block">
-    <div class="container d-flex justify-content-center gap-4 py-1">
-        <span><i class="fa-solid fa-check-circle"></i> Licensed Surveyors</span>
-        <span><i class="fa-solid fa-check-circle"></i> GIS Specialists</span>
-        <span><i class="fa-solid fa-check-circle"></i> Drone Mapping Experts</span>
-        <span><i class="fa-solid fa-check-circle"></i> Accurate & Reliable Results</span>
-    </div>
-</div>
 
 <div class="top-info-bar">
     <div class="container">
         <div class="info-left">
-            <span><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</span>
+            <span><i class="fa-solid fa-location-dot"></i> Maasai Mall, Ongata Rongai</span>
             <span><i class="fa-solid fa-phone"></i> +254 700 000 000</span>
             <span><i class="fa-solid fa-envelope"></i> info@geoaxis.co.ke</span>
         </div>
