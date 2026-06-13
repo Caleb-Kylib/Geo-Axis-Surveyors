@@ -134,18 +134,18 @@ GeoAxis/
 3. **View the website**
    - Navigate to `http://localhost:8000` (or the port specified)
 
-### Deployment
+### Deployment on Vercel
 
-To deploy this website:
+This project is optimized for deployment on **Vercel** with the following features:
+- **Clean URLs**: Access pages like `/about` instead of `/about.html`.
+- **404 Handling**: A custom branded error page for broken links.
+- **Fast Local Assets**: Optimized caching for CSS and JS.
 
-1. **Upload files to your web server** via FTP or hosting control panel
-2. **Update contact information** in each HTML file:
-   - Phone numbers (+254700000000)
-   - Email addresses
-   - Physical address
-3. **Replace placeholder images** with actual business photos
-4. **Update domain** (og:url in meta tags)
-5. **Test all links and forms** before going live
+To deploy:
+1. Push your changes to GitHub.
+2. Go to [Vercel](https://vercel.com) and click **"New Project"**.
+3. Import this repository.
+4. Vercel will automatically detect the static settings and deploy.
 
 ---
 
