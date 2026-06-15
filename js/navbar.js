@@ -10,7 +10,7 @@ const navbarHTML = `
         <div class="info-left">
             <span><i class="fa-solid fa-location-dot"></i> Maasai Mall, Ongata Rongai</span>
             <span><i class="fa-solid fa-phone"></i> +254 710 887 713</span>
-            <span><i class="fa-solid fa-envelope"></i> info@geoaxis.co.ke</span>
+            <span><i class="fa-solid fa-envelope"></i> geoaxissurveyorske@gmail.com</span>
         </div>
         <div class="info-right">
             <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
